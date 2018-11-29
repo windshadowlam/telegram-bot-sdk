@@ -290,6 +290,34 @@ class Api
 
         return new Message($response->getDecodedBody());
     }
+    
+    /**
+     * Delete messages of any kind.
+     *
+     * <code>
+     * $params = [
+     *   'chat_id'              => '',
+     *   'message_id'           => '',
+     * ];
+     * </code>
+     *
+     * @link https://core.telegram.org/bots/api#deletemessage
+     *
+     * @param array    $params
+     *
+     * @var int|string $params ['chat_id']
+     * @var int        $params ['message_id']
+     *
+     * @throws TelegramSDKException
+     *
+     * @return bool
+     */
+    public function deleteMessage(array $params)
+    {
+        $response = $this->post('deleteMessage', $params);
+
+        return true;
+    }
 
     /**
      * Send Photos.
